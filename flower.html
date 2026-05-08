@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Flower</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('https://wallpaperaccess.com/full/5244.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      z-index: 3;
+      position: relative;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: white;
+    }
+    button:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.05);
+    }
+    button:active {
+      transform: translateY(0) scale(0.98);
+    }
+    #noBtn {
+      position: absolute;
+      left: 58%;
+      top: 60%;
+      background: linear-gradient(135deg, #ff94b5, #ff6b6b);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    #yesBtn {
+      background: linear-gradient(135deg, #79e9ce, #2fbda4);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    #background {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    #flowerContainer {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 2s ease;
+      z-index: 2;
+      flex-direction: column;
+      text-align: center;
+      gap: 12px;
+      color: white;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+    #flowerContainer.visible {
+      opacity: 1;
+    }
+    .flower-message {
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0;
+    }
+    .flower-subtext {
+      font-size: 18px;
+      margin: 0;
+      opacity: 0.9;
+    }
+    .flower {
+      position: absolute;
+      top: -80px;
+      font-size: 36px;
+      animation: fall 16s linear infinite;
+      pointer-events: none;
+    }
+    #audioBar {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 999px;
+      padding: 8px 14px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      display: none;
+    }
+    #audioBar audio {
+      display: block;
+      width: 260px;
+      outline: none;
+    }
+    @keyframes fall {
+      0% { top: -80px; opacity: 1; }
+      100% { top: 110vh; opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <button id="noBtn">No</button>
+  <button id="yesBtn">Yes</button>
+  <div id="background"></div>
+  <div id="flowerContainer">
+    <h1 class="flower-message">Happy Birthday Bridget!!</h1>
+    <p class="flower-subtext">I hope you like this lil gift wahaha</p>
+    <span class="flower" style="left: 10%; animation-delay: 0s;">🌸</span>
+    <span class="flower" style="left: 20%; animation-delay: 0.5s;">🌹</span>
+    <span class="flower" style="left: 30%; animation-delay: 1s;">🌷</span>
+    <span class="flower" style="left: 40%; animation-delay: 1.5s;">🌼</span>
+    <span class="flower" style="left: 50%; animation-delay: 2s;">🌺</span>
+    <span class="flower" style="left: 60%; animation-delay: 2.5s;">🌻</span>
+    <span class="flower" style="left: 70%; animation-delay: 3s;">🌸</span>
+    <span class="flower" style="left: 80%; animation-delay: 3.5s;">🌹</span>
+  </div>
+
+  <div id="audioBar">
+    <audio id="bgMusic" controls>
+      <source src="Ravyn_Lenae_-_Love_Me_Not.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script src="Flower.js"></script>
+</body>
+</html>
